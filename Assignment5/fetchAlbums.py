@@ -37,7 +37,7 @@ def fetchAlbumInfo(album_id):
     name = r['name']
     albuminfo['name'] = name
     
-    year = r['release_date']
+    year = r['release_date'][0:4]
     albuminfo['year'] = year
     
     popularity = r['popularity']
