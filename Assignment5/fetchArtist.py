@@ -15,10 +15,10 @@ def fetchArtistId(name):
     items = artist['items']
     pick = items[0]
     id = pick['id']
-    print id
+    #print id
     return id
 
-fetchArtistId('Robyn')   
+#fetchArtistId('Robyn')   
 
 def fetchArtistInfo(artist_id):
     """Using the Spotify API, takes a string representing the id and
@@ -44,9 +44,9 @@ def fetchArtistInfo(artist_id):
     
     popularity = r['popularity']
     artistinfo['popularity'] = popularity
-    print artistinfo
+    #print artistinfo
     return artistinfo
     
-fetchArtistInfo('6UE7nl9mha6s8z0wFQFIZ2')
+#fetchArtistInfo('6UE7nl9mha6s8z0wFQFIZ2')
     
 

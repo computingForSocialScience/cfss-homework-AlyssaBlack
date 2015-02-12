@@ -14,7 +14,7 @@ def fetchAlbumIds(artist_id):
     #print id
     return id
     
-fetchAlbumIds('6UE7nl9mha6s8z0wFQFIZ2')
+#fetchAlbumIds('6UE7nl9mha6s8z0wFQFIZ2')
 
 
 def fetchAlbumInfo(album_id):
@@ -28,7 +28,7 @@ def fetchAlbumInfo(album_id):
     
     artist = r['artists'][0]
     id = artist['id']
-    print id
+    #print id
     albuminfo['artist_id'] = id
     
     album_id = r['id']
@@ -42,8 +42,8 @@ def fetchAlbumInfo(album_id):
     
     popularity = r['popularity']
     albuminfo['popularity'] = popularity
-    print albuminfo
+    #print albuminfo
     return albuminfo
     
 
-fetchAlbumInfo('4ektWErsV6EIxW0jBWq1Jn')
+#fetchAlbumInfo('4ektWErsV6EIxW0jBWq1Jn')

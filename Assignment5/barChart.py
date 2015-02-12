@@ -25,8 +25,8 @@ def getBarChartData():
         decade_dict[decade] = 0
     
 #Iterates over every item in artists_rows, and therefore every row in the csv. Assigns each column of the row (1 value) to a variable. Appends artist name to artist_names list.
-    for artist_row in artists_rows:s
-        if not artist_row:
+    for artist_row in artists_rows:
+    	if not artist_row:
             continue
         artist_id,name,followers, popularity = artist_row
         artist_names.append(name)
@@ -35,6 +35,7 @@ def getBarChartData():
     for album_row  in albums_rows:
         if not album_row:
             continue
+        print album_row
         artist_id, album_id, album_name, year, popularity = album_row
         #Find the decade range wherein the album was released. Increase the count on the decade_dict to reflect the number of albums released in that decade. 
         for decade in decades:
@@ -62,6 +63,5 @@ def plotBarChart():
     ax.set_title('Totals for ' + ', '.join(artist_names))
     plt.show()
 
-#Call methods.
-getBarChartData()
-plotBarChart()
+if __name__ == "__main__":
+	getBarChartData()

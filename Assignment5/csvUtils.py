@@ -14,8 +14,8 @@ def writeArtistsTable(artist_info_list):
 
     
     for i in range(len(artist_info_list)):
-    	print i
-    	print artist_info_list[i]
+    	#print i
+    	#print artist_info_list[i]
     	f.write(artist_info_list[i]['id'])
     	f.write(u',')
     	f.write("%s" %artist_info_list[i]["name"])
@@ -52,22 +52,22 @@ def writeAlbumsTable(album_info_list):
     	f.write(u'\n')
     f.close()
     
-if __name__ == '__main__':
-    artists = ["Fleetwood Mac", "coldplay"]
-    artist_ids = [fetchArtistId(x) for x in artists]
-    artist_info_list = [fetchArtistInfo(x) for x in artist_ids]
-    writeArtistsTable(artist_info_list)
+#if __name__ == '__main__':
+#    artists = ["Fleetwood Mac", "coldplay"]
+#    artist_ids = [fetchArtistId(x) for x in artists]
+#    artist_info_list = [fetchArtistInfo(x) for x in artist_ids]
+#    writeArtistsTable(artist_info_list)
 
-    all_albums = []
-    for artist in artist_ids:
-        albums_list = fetchAlbumIds(artist)
-        for i in range(len(albums_list)):
-            all_albums.append(albums_list[i])
-    print all_albums
-    album_info_list = [fetchAlbumInfo(x) for x in all_albums]
+#    all_albums = []
+#    for artist in artist_ids:
+#        albums_list = fetchAlbumIds(artist)
+#        for i in range(len(albums_list)):
+#            all_albums.append(albums_list[i])
+#    print all_albums
+#    album_info_list = [fetchAlbumInfo(x) for x in all_albums]
     
-    writeArtistsTable(artist_info_list)   
-    writeAlbumsTable(album_info_list)    
+#    writeArtistsTable(artist_info_list)   
+#    writeAlbumsTable(album_info_list)    
     
 #if __name__ == "__main__":
 #	artist_list = ["Fleetwood Mac", "Death Cab for Cutie"]
