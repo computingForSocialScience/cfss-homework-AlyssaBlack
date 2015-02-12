@@ -18,7 +18,7 @@ def writeArtistsTable(artist_info_list):
     	#print artist_info_list[i]
     	f.write(artist_info_list[i]['id'])
     	f.write(u',')
-    	f.write("%s" %artist_info_list[i]["name"])
+    	f.write('"%s"' %artist_info_list[i]["name"])
     	f.write(u',')
     	f.write(unicode(artist_info_list[i]['followers']))
     	f.write(u',')
@@ -44,7 +44,7 @@ def writeAlbumsTable(album_info_list):
     	f.write(u',')
     	f.write(album_info_list[i]['album_id'])
     	f.write(u',')
-    	f.write("%s" %album_info_list[i]['name'])
+    	f.write('"%s"' %album_info_list[i]["name"])
     	f.write(u',')
     	f.write(unicode(album_info_list[i]['year']))
     	f.write(u',')

@@ -47,6 +47,7 @@ def fetchArtistInfo(artist_id):
     #print artistinfo
     return artistinfo
     
+    
 #fetchArtistInfo('6UE7nl9mha6s8z0wFQFIZ2')
     
 

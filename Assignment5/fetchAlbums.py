@@ -45,5 +45,3 @@ def fetchAlbumInfo(album_id):
     #print albuminfo
     return albuminfo
     
-
-#fetchAlbumInfo('4ektWErsV6EIxW0jBWq1Jn')
