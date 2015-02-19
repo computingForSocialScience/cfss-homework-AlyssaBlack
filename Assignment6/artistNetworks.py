@@ -4,6 +4,7 @@ import numpy as np
 import csv 
 import sys
 
+pd.set_option('display.mpl_style', 'default')
 def getRelatedArtists(artistID):
 	RelatedArtists = []
 	url = 'https://api.spotify.com/v1/artists/'+artistID+'/related-artists'
@@ -24,7 +25,7 @@ def getDepthEdges(artistID, depth):
 	while dig < depth:
 		#each level of search
 		for i in range(len(search)):
-			related = getRelatedArtists(artistID)
+			related = getRelatedArtists(search[i])
 			neighbors = []
 			for j in range(len(related)):
 				edge = (search[i], related[j])

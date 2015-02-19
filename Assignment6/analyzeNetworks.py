@@ -18,9 +18,9 @@ def degree(edgeList, in_or_out):
 		degree = edgeList['0'].value_counts()
 	return degree
 	
-def combineEdgelists(edgeList1, edgeList2):
-	edgeList = [edgeList1, edgeList2]
-	edgeList = pd.concat(edgeList)
+def combineEdgeLists(edgeList1, edgeList2):
+	lists = [edgeList1, edgeList2]
+	edgeList = pd.concat(lists)
 	edgeList = edgeList.drop_duplicates()
 	return edgeList
 	
@@ -42,11 +42,3 @@ def randomCentralNode(inputDiGraph):
 	central_node = np.random.choice(normed_dict.keys(), p = normed_dict.values())
 	return central_node
 
-if __name__ == "__main__":
-	edgeList = readEdgeList('edgeList.csv')
-	#list1 = edgeList[:50]
-	#list2 = edgeList[50:]
-	#degree(edgeList, "out")
-	#combined = combineEdgeLists(list1, list2)
-	diGraph = pandasToNetworkX(edgeList)
-	print randomCentralNode(diGraph)
