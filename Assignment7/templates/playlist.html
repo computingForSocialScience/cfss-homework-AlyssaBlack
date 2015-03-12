@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Songs</title>
+</head>
+<body>
+	<h2>CFSS Assignment #7 Playlists</h2>
+	<table>
+		<tr align="left"> 
+			<th>songOrder</th>
+			<th>artistName</th>
+			<th>albumName</th>
+			<th>trackName</th>
+		</tr>
+
+		{% for songOrder, artistName, albumName, trackName in songs %}
+
+			<tr>
+				<td>{{songOrder}}</td>
+				<td> {{artistName}}</td>
+				<td> {{albumName}}</td>
+				<td> {{trackName}}</td>
+			</tr>
+
+		{% endfor %}
+
+	</table>
+
+</body>
+</html>

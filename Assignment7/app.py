@@ -12,11 +12,12 @@ host="localhost"
 user="root"
 passwd=""
 db=pymysql.connect(db=dbname, host=host, user=user,passwd=passwd, charset='utf8')
-c = db.cursor()
+#c = db.cursor()
 
 app = Flask(__name__)
 
 def createNewPlaylist(artist):
+	c = db.cursor()
 	sql = "CREATE TABLE IF NOT EXISTS playlists (id INT PRIMARY KEY AUTO_INCREMENT, rootArtist VARCHAR(500)) ENGINE=MyISAM DEFAULT CHARSET=utf8"
 	sql2 = "CREATE TABLE IF NOT EXISTS songs (playlistId INT, songOrder INT(8), artistName VARCHAR(500), albumName VARCHAR(500), trackName VARCHAR(500)) ENGINE=MyISAM DEFAULT CHARSET=utf8"
 	c.execute(sql)
@@ -56,36 +57,44 @@ def make_index_resp():
     # this function just renders templates/index.html when
     # someone goes to http://127.0.0.1:5000/
     #createNewPlaylist('Robyn')
+    c = db.cursor()
     return(render_template('index.html'))
 
 
 @app.route('/playlists/')
 def make_playlists_resp():
+	c = db.cursor()
 	c.execute('SELECT * FROM playlists')
 	playlists = c.fetchall()
 	return render_template('playlists.html',playlists=playlists)
 
 
-@app.route('/playlist/<playlistId>')
-def make_playlist_resp(playlistId):
-    return render_template('playlist.html',songs=songs)
+@app.route('/playlist/<playlistID>')
+def make_playlist_resp(playlistID):
+	#id = playlistID
+	c = db.cursor()
+	c.execute("SELECT playlistId, songOrder, artistName, albumName, trackName FROM songs WHERE playlistId='playlistID' ORDER BY songOrder") 
+	songs = c.fetchall()
+	print songs
+	return render_template('playlist.html',songs=songs)
 
 
 @app.route('/addPlaylist/',methods=['GET','POST'])
 def add_playlist():
-    if request.method == 'GET':
-        # This code executes when someone visits the page.
-        return(render_template('addPlaylist.html'))
-    elif request.method == 'POST':
-        # this code executes when someone fills out the form
-        artistName = request.form['artistName']
-        # YOUR CODE HERE
-        return(redirect("/playlists/"))
+	c = db.cursor()
+	if request.method == 'GET':
+		# This code executes when someone visits the page.
+		return(render_template('addPlaylist.html'))
+	elif request.method == 'POST':
+		# this code executes when someone fills out the form
+		artistName = request.form['artistName']
+		# YOUR CODE HERE
+		return(redirect("/playlists/"))
 
 
 
 if __name__ == '__main__':
-    #app.debug=True
+    app.debug=True
     #createNewPlaylist("Spoon")
     #createNewPlaylist("Coldplay")
     app.run()
