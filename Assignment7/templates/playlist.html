@@ -3,7 +3,7 @@
 	<title>Songs</title>
 </head>
 <body>
-	<h2>CFSS Assignment #7 Playlists</h2>
+	<h2>CFSS Assignment #7 Songs</h2>
 	<table>
 		<tr align="left"> 
 			<th>songOrder</th>
@@ -15,10 +15,10 @@
 		{% for songOrder, artistName, albumName, trackName in songs %}
 
 			<tr>
-				<td>{{songOrder}}</td>
-				<td> {{artistName}}</td>
-				<td> {{albumName}}</td>
-				<td> {{trackName}}</td>
+				<td>{{ songOrder}}</td>
+				<td> {{ artistName}}</td>
+				<td> {{ albumName}}</td>
+				<td> {{ trackName}}</td>
 			</tr>
 
 		{% endfor %}

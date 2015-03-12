@@ -73,7 +73,8 @@ def make_playlists_resp():
 def make_playlist_resp(playlistID):
 	#id = playlistID
 	c = db.cursor()
-	c.execute("SELECT playlistId, songOrder, artistName, albumName, trackName FROM songs WHERE playlistId='playlistID' ORDER BY songOrder") 
+	#playlistId, songOrder, artistName, albumName, trackName
+	c.execute("SELECT * FROM songs WHERE playlistId='playlistID' ORDER BY songOrder") 
 	songs = c.fetchall()
 	print songs
 	return render_template('playlist.html',songs=songs)
