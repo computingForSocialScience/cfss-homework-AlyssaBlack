@@ -61,7 +61,9 @@ def make_index_resp():
 
 @app.route('/playlists/')
 def make_playlists_resp():
-    return render_template('playlists.html',playlists=playlists)
+	c.execute('SELECT * FROM playlists')
+	playlists = c.fetchall()
+	return render_template('playlists.html',playlists=playlists)
 
 
 @app.route('/playlist/<playlistId>')
@@ -84,6 +86,7 @@ def add_playlist():
 
 if __name__ == '__main__':
     #app.debug=True
-    #app.run()
     #createNewPlaylist("Spoon")
-    createNewPlaylist("Coldplay")
+    #createNewPlaylist("Coldplay")
+    app.run()
+    
