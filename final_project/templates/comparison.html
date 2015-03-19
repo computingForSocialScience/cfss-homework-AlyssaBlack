@@ -1,0 +1,37 @@
+<html>
+<head><title>Census Data Comparison Page</title></head>
+<body>
+	{% for comp in comparisons %}  
+	<p>{{ comp}}</p>
+	{% endfor %}
+	
+	<div class='matplotlib'>
+		<img alt="Scatterplot" src="/static/temp/{{plotPng}}" height="600" width="900">
+	</div>
+	
+
+	<table>
+		<tr align="left"> 
+			<th>Slope</th>
+			<th>Intercept</th>
+			<th>R-Value</th>
+			<th>P-Value</th>
+			<th>Standard Error</th>
+		</tr>
+
+		
+
+		<tr>
+			<td>{{slope}}</td>
+			<td>{{ intercept}}</td>
+			<td>{{ r}}</td>
+			<td>{{ p}}</td>
+			<td>{{ stderr}}</td>
+		</tr>
+
+	
+
+	</table>
+	
+</body>
+</html>
